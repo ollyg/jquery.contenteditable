@@ -3,7 +3,10 @@
 	{
 		var config = {
 			url     : 'save.php',
-			callback: response
+			callback: response,
+			label   : 'Save',
+			class   : 'closer',
+			href    : '#'
 		};
 
 		$.extend(config, settings);
@@ -23,7 +26,9 @@
 				// create save link if not there
 				if (!$self.next().is('a.closer')) {
 					$('<a></a>', {
-						href: '#', text: 'Save', class: 'closer'
+						href : config.href,
+						text : config.label,
+						class: config.class
 					})
 					.on('click', save)
 					.insertAfter(this);
