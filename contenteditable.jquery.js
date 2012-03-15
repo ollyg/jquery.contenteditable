@@ -4,8 +4,7 @@
 		// for all editable items
 		this.each(function(){
 
-			var self  = this,
-				$self = $(self);
+			var $self = $(this);
 
 			$self
 			  .on('click', edit)
@@ -58,6 +57,7 @@
 				}, 100);
 			}
 
+			// Check if empty
 			function validate() {
 				if ($self.html() === '') $self.html( $self.data('before') );
 			}
