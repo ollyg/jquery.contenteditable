@@ -28,7 +28,10 @@
 	(function(){
 
 		$('.editable').contenteditable({
-			url: 'save.php'
+			url: 'save.php',
+			callback: function(status) {
+				console.log('My callback says: ' + status);
+			}
 		});
 
 	})();
