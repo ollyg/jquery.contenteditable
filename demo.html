@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CE</title>
+	<style>
+		body {
+			font-size: 100px;
+		}
+
+		p {
+			text-align: center;
+			display: inline-block;
+			background: #eee;
+			width: 400px;
+			margin: 20px;
+		}
+	</style>
+</head>
+<body>
+	<p class="editable" contenteditable="true">Edit me</p>
+	<br>
+	<p class="editable" contenteditable="true">Edit me</p>
+
+	<script src="jquery-1.7.1.min.js"></script>
+	<script src="contenteditable.jquery.js"></script>
+	<script>
+	(function(){
+
+		$('.editable').contenteditable();
+
+	})();
+	</script>
+</body>
+</html>
