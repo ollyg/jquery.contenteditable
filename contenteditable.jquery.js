@@ -43,8 +43,21 @@
 			function save() {
 				validate();
 
-				console.log('saved');
+				// Send ajax request
+				$.post('save.php',
+				{
+					id   : $self.data('id'),
+					value: $self.html()
+				},
+				response);
+
 				$(this).remove();
+			}
+
+			function response(status)
+			{
+				// status ca be 'success' or 'fail' as string
+				console.log(status);
 			}
 
 			function blur() {
