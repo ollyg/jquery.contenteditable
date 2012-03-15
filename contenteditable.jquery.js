@@ -2,7 +2,8 @@
 	$.fn.contenteditable = function(settings)
 	{
 		var config = {
-			url: 'save.php'
+			url     : 'save.php',
+			callback: response
 		};
 
 		$.extend(config, settings);
@@ -55,18 +56,12 @@
 					id   : $self.data('id'),
 					value: $self.html()
 				},
-				response);
+				config.callback);
 
 				$(this).remove();
 
 				// stop hyperlink default
 				return false;
-			}
-
-			function response(status)
-			{
-				// status ca be 'success' or 'fail' as string
-				console.log(status);
 			}
 
 			function blur() {
@@ -84,6 +79,12 @@
 				if ($self.html() === '') $self.html( $self.data('before') );
 			}
 		});
+
+		// default response func for ajax request
+		function response(status)
+		{
+			// status ca be 'success' or 'fail' as string
+		}
 
 	}
 })(jQuery);
