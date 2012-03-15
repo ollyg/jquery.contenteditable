@@ -1,6 +1,12 @@
 (function($){
-	$.fn.contenteditable = function()
+	$.fn.contenteditable = function(settings)
 	{
+		var config = {
+			url: 'save.php'
+		};
+
+		$.extend(config, settings);
+
 		// for all editable items
 		this.each(function(){
 
@@ -44,7 +50,7 @@
 				validate();
 
 				// Send ajax request
-				$.post('save.php',
+				$.post(config.url,
 				{
 					id   : $self.data('id'),
 					value: $self.html()
@@ -52,6 +58,9 @@
 				response);
 
 				$(this).remove();
+
+				// stop hyperlink default
+				return false;
 			}
 
 			function response(status)
